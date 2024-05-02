@@ -29,7 +29,14 @@ export async function LocalizationSelect({
     <div className={className}>
       <Select>
         <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder={`${localeData.flag} ${localeData.title}`} />
+          <SelectValue
+            placeholder={
+              <>
+                <span className="mr-1">{localeData.flag}</span>{" "}
+                <span>{localeData.title}</span>
+              </>
+            }
+          />
         </SelectTrigger>
         <SelectContent className="bg-white dark:bg-black">
           {object_type.locales.map((locale: string) => {
@@ -40,7 +47,8 @@ export async function LocalizationSelect({
                 key={locale}
                 href={linkPath.replace("[locale]", locale)}
               >
-                {`${localeData.flag} ${localeData.title}`}
+                <span className="mr-1">{localeData.flag}</span>{" "}
+                <span>{localeData.title}</span>
               </Link>
             );
           })}
