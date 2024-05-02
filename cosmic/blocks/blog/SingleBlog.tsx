@@ -19,7 +19,7 @@ export async function SingleBlog({
   try {
     const { object: blog } = await cosmic.objects
       .findOne(query)
-      .props("id,slug,title,metadata,locale")
+      .props("id,slug,title,metadata,locale,type")
       .depth(1)
       .status(status ? status : "published");
 
@@ -37,14 +37,14 @@ export async function SingleBlog({
                 <ArrowLeftIcon className="mr-2 mt-1 h-4 w-4" /> Back to blog
               </Link>
             </div>
-            <h1 className="mb-4 text-3xl font-extrabold leading-tight tracking-tighter text-black dark:text-white md:text-4xl">
+            <h1 className="mb-2 text-3xl font-extrabold leading-tight tracking-tighter text-black dark:text-white md:text-4xl">
               {blog.title}
             </h1>
             <LocalizationSelect
               defaultLocale={blog.locale}
               linkPath={`/[locale]/blog/${blog.slug}`}
+              objectType={blog.type}
             />
-
             <div className="mb-10 w-full overflow-hidden rounded-xl">
               <img
                 src={`${blog.metadata.image.imgix_url}?w=2000&auto=format,compression`}

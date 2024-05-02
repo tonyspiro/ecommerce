@@ -13,12 +13,14 @@ import locales from "@/cosmic/blocks/localization/locales.json";
 export async function LocalizationSelect({
   defaultLocale,
   linkPath,
+  objectType,
 }: {
   defaultLocale: string;
   linkPath: string;
+  objectType: string;
 }) {
   // Localization switch
-  const { object_type } = await cosmic.objectTypes.findOne("blog-posts");
+  const { object_type } = await cosmic.objectTypes.findOne(objectType);
   const localeData = locales.filter((l) => defaultLocale === l.code)[0];
   return (
     <Select>
