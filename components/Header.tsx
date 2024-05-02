@@ -13,10 +13,6 @@ export async function Header() {
     })
     .props("metadata")
     .depth(1);
-  // Localization switch
-  const { object_type } = await cosmic.objectTypes.findOne("blog-posts");
-
-  console.log(object_type);
   return (
     <div className="space-x-4 sticky top-0 bg-white/20 dark:bg-black/20 backdrop-blur-lg py-2 w-full z-[9999]">
       <div className="m-auto flex items-center md:container justify-between pl-2 pr-4">
