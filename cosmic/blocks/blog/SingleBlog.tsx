@@ -44,6 +44,7 @@ export async function SingleBlog({
               defaultLocale={blog.locale}
               linkPath={`/[locale]/blog/${blog.slug}`}
               objectType={blog.type}
+              className="mb-2"
             />
             <div className="mb-10 w-full overflow-hidden rounded-xl">
               <img

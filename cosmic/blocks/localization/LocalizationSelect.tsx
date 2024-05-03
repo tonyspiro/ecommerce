@@ -20,7 +20,7 @@ export async function LocalizationSelect({
   defaultLocale: string;
   linkPath: string;
   objectType: string;
-  className: string;
+  className?: string;
 }) {
   // Localization switch
   const { object_type } = await cosmic.objectTypes.findOne(objectType);
